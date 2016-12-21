@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UNISA|Progression Map</title>
+    <meta charset="utf-8">
+    <link href="content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="styles/kendo.common.min.css" rel="stylesheet">
+    <link href="styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="styles/kendo.default.min.css" rel="stylesheet">
+    <link href="styles/kendo.default.mobile.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <script src="content/shared/js/console.js"></script>
+    <script>
+        
+    </script>
+    
+    
+</head>
+<body>
+       <center>
+       <p class="offline-button" style="background: #42b3b3; height: 30px; width: 630px; font-size: 25px" >ROADMAP FOR ACADEMIC PROGRESSION</p>
+       </center> 
+    
+    <div id="example">
+    <div class="demo-section k-content wide">
+        <center><div id="chart" style=" width: 900px; height: 900px"></div></center>
+        <div class="description" style="position: absolute; top: 300px ; left: 80px"  >
+        <p><img src="styles/images/one.png" title="one" >Assignments</p>
+        <p><img src="styles/images/two.png" title="two">Test/Assessments</p>
+        <p><img src="styles/images/three.png" title="three">Tutorials</p>
+        <p><img src="styles/images/four.png" title="four">Courses</p>
+        <p><img src="styles/images/five.png" title="five">Projects</p>
+        </div>
+    </div>
+    <script>
+        function createChart() {
+            $("#chart").kendoChart({
+                title: {
+                    position: "top",
+                    text: "if there is no Struggle there is no progress"
+                },
+                legend: {
+                    visible: false
+
+                },
+                chartArea: {
+                    background: ""
+                },
+                seriesDefaults: {
+                    type: "donut",
+                    startAngle: 90,
+                },
+                series:[
+                    {
+
+                    name: "% completed",
+                    data:[
+
+                    {
+                        category: "PROJECTS <br>Status:In Progress <br> Date: 12/18/2016 <br> description: we are on Chapter 4<br>",
+                        value: 60,
+                        color: "#f79854"
+                    },
+
+                    {
+                        category: "PROJECTS<br>Status:Still to do <br> Date: 12/17/2016 <br> description: Runing out of Time <br> ",
+                        value: 40,
+                        color: "white"
+                    }
+
+                    ]
+
+                    },
+
+                    {
+
+                    name: "% completed",
+                    data:[
+
+                    {
+                        category: "COURSES <br>Status:In Progress <br> Date: 12/18/2016- 01/18/2017 <br> description: we started 3 courses 2 to go <br>",
+                        value: 65,
+                        color: " #5ba42f"
+                    },
+
+                    {
+                        category: "COURSES <br>Status:Still to do <br> Date: 12/18/2016- 01/18/2017 <br> description: we are left with 2 courses to finish <br>",
+                        value: 35,
+                        color: "white"
+                    },
+
+                    ]
+
+                    },
+
+                    {
+
+                    name: "% completed",
+                    data:[
+
+                    {
+                        category: "Status:In Progress <br> Date: 12/18/2016- 01/18/2017 <br> description: Progressing well <br>",
+                        value: 71,
+                        color: "#b383ba"
+                    },
+
+                    {
+                        category: "TUTORIALS <br>Status:Still to do <br> Date: 12/18/2016- 01/18/2017 <br> description: we are left with a few tutorials <br> TUTORIALS <br>",
+                        value: 29,
+                        color: "white"
+                    },
+
+                    ]
+
+                    },
+
+                    {
+
+                    name: "% Completed",
+                    data:[
+
+                    {
+                        category: "Status:In Progress <br> Date: 12/18/2016- 01/18/2017 <br> description: Wrote 3 inclass tests <br>",
+                        value: 70,
+                        color: "#e65455"
+                    },
+
+                    {
+                        category: "TESTS <br>Status:Still to write <br> Date: 20/10/2016 <br> description: we are waiting for the time table <br> TESTS <br>",
+                        value: 30,
+                        color: "white"
+                    },
+              
+                    ]
+
+                    },
+
+                    {
+                    name: '% Completed',
+                    data: [
+                    
+
+                    {
+                        category: "Status:Progress <br> Date: 20/10/2016 <br> description: we are doing great <br>",
+                        value: 70,
+                        color: "#006666"
+                    },
+
+                    {
+                        category: "Status:Still to do <br> Date: 20/10/2016 <br> description: we are doing great <br>",
+                        value: 30,
+                        color: "white"
+                    },
+
+                   
+
+
+                    ],
+                    labels: {
+                        visible: true,
+                        background: "transparent",
+                        position: "outsideEnd",
+                        
+                    }
+                }
+
+
+
+
+
+                ],
+                tooltip: {
+                    visible: true,
+                    template: "#= category # (#= series.name #): #= value #%"
+                }
+            });
+        }
+
+        $(document).ready(createChart);
+        $(document).bind("kendo:skinChange", createChart);
+    </script>
+</div>
+
+
+    
+</body>
+</html>
