@@ -16,30 +16,37 @@
  * 2 along with this work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+package za.co.unisa.Factories.gui.Adaptors;
 
-package za.co.unisa.test;
-
-import za.co.unisa.observers.observerObjects.ListObserver;
-import za.co.unisa.observers.Subject;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ObserverPatternDemo {
-   public static void main(String[] args) {
-      Subject subject = new Subject();
+import java.util.HashMap;
+import java.util.Map;
+import za.co.unisa.Factories.gui.Gui;
 
-    /**
-     * instance of the observer object to test the observer pattern.
-     */
-      new ListObserver(subject);
-   
-	  
+public enum  GuiFactory {
+  INSTANCE;
+  private Map<String, Gui> texts = new HashMap<String, Gui>();
+	
+	public Gui createGui(String guiType)
+			throws Exception {
+		Gui gui = texts.get(guiType);
+		if (gui != null) {
+				return gui;
+		} else {
+			try {
+				String name = Gui.class.getPackage().getName();
+				gui = (Gui) Class.forName(name+"."+guiType).newInstance();
+				texts.put(guiType, gui);
+				return gui;
+			} catch (Exception e) {
+					throw new Exception("\nThe GUI type is unknown!");
+			}
+		}
 
-      System.out.println("First state change: 15");	
-      subject.setState(15);
-      System.out.println("Second state change: 10");	
-      subject.setState(10);
-   }
+	}
+
 }

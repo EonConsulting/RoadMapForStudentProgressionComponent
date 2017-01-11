@@ -16,30 +16,20 @@
  * 2 along with this work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
-package za.co.unisa.test;
-
-import za.co.unisa.observers.observerObjects.ListObserver;
-import za.co.unisa.observers.Subject;
+package za.co.unisa.Factories.gui;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ObserverPatternDemo {
-   public static void main(String[] args) {
-      Subject subject = new Subject();
+public interface Gui {
+
+    public abstract void write();
 
     /**
-     * instance of the observer object to test the observer pattern.
+     *
+     * @returnit it will return output to jsp 
      */
-      new ListObserver(subject);
-   
-	  
-
-      System.out.println("First state change: 15");	
-      subject.setState(15);
-      System.out.println("Second state change: 10");	
-      subject.setState(10);
-   }
+    public String returning();
+    
 }

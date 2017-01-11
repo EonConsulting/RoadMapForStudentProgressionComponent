@@ -16,30 +16,27 @@
  * 2 along with this work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
-package za.co.unisa.test;
-
-import za.co.unisa.observers.observerObjects.ListObserver;
-import za.co.unisa.observers.Subject;
+package za.co.unisa.Factories.text;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ObserverPatternDemo {
-   public static void main(String[] args) {
-      Subject subject = new Subject();
+public class XML implements Text {
 
-    /**
-     * instance of the observer object to test the observer pattern.
-     */
-      new ListObserver(subject);
-   
-	  
+    public XML() {
+    }
+    
+    @Override
+    public void write() {
 
-      System.out.println("First state change: 15");	
-      subject.setState(15);
-      System.out.println("Second state change: 10");	
-      subject.setState(10);
-   }
+        
+        
+        System.out.println("below is the XML text!");
+          
+          Data d = new Data();
+      d.xml();
+        //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

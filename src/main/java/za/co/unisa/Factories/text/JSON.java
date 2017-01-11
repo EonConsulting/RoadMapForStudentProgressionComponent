@@ -16,30 +16,33 @@
  * 2 along with this work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+package za.co.unisa.Factories.text;
 
-package za.co.unisa.test;
-
-import za.co.unisa.observers.observerObjects.ListObserver;
-import za.co.unisa.observers.Subject;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ObserverPatternDemo {
-   public static void main(String[] args) {
-      Subject subject = new Subject();
+public class JSON implements Text {
 
-    /**
-     * instance of the observer object to test the observer pattern.
-     */
-      new ListObserver(subject);
-   
-	  
+    public JSON() {
+        
+    }
+    
+    
+    @Override
+    public void write() {
+        System.out.println("\nI am writing a JSON Text! below ");
+         JSONObject obj = new JSONObject();
 
-      System.out.println("First state change: 15");	
-      subject.setState(15);
-      System.out.println("Second state change: 10");	
-      subject.setState(10);
-   }
+      obj.put("Name", "MUFARO");
+      obj.put("Age", new Integer(32));
+      obj.put("Salary", new Double(120500));
+    //  obj.put("is_vip", new Boolean(true));
+
+      System.out.print(obj);
+        //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

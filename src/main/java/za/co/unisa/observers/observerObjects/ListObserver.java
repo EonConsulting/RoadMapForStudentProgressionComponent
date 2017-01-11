@@ -17,29 +17,30 @@
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-package za.co.unisa.test;
+package za.co.unisa.observers.observerObjects;
 
-import za.co.unisa.observers.observerObjects.ListObserver;
+import za.co.unisa.observers.Observer;
 import za.co.unisa.observers.Subject;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ObserverPatternDemo {
-   public static void main(String[] args) {
-      Subject subject = new Subject();
-
-    /**
-     * instance of the observer object to test the observer pattern.
-     */
-      new ListObserver(subject);
-   
-	  
-
-      System.out.println("First state change: 15");	
-      subject.setState(15);
-      System.out.println("Second state change: 10");	
-      subject.setState(10);
+public class ListObserver extends Observer{
+/**
+ * constructor of the observer object registration and attachment 
+ * @param subject 
+ */
+   @SuppressWarnings("LeakingThisInConstructor")
+   public ListObserver(Subject subject){
+      this.subject = subject;
+      this.subject.attach(this);
+   }
+/**
+ * implementation of the update method if necessary 
+ */
+   @Override
+   public void update() {
+     System.out.println( "Octal String List View: " + Integer.toOctalString( subject.getState() ) ); 
    }
 }

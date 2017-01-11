@@ -16,31 +16,30 @@
  * 2 along with this work; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
-package za.co.unisa.observerObjects;
-
-import za.co.unisa.observers.Observer;
-import za.co.unisa.observers.Subject;
+package za.co.unisa.Factories.gui;
 
 /**
  *
  * @author Mufaro Benedict
  */
-public class ListObserver extends Observer{
-/**
- * constructor of the observer object registration and attachment 
- * @param subject 
- */
-   @SuppressWarnings("LeakingThisInConstructor")
-   public ListObserver(Subject subject){
-      this.subject = subject;
-      this.subject.attach(this);
-   }
-/**
- * implementation of the update method if necessary 
- */
-   @Override
-   public void update() {
-     System.out.println( "Octal String List View: " + Integer.toOctalString( subject.getState() ) ); 
-   }
+public class FORM implements Gui{
+
+    @Override
+    public void write() {
+        System.out.println("Form ikushanda ");
+        /**
+         * make write return a string and then the returned string will
+         * be called by the jsp to output on the web page.
+         */
+      
+       
+    }
+
+    @Override
+    public String returning() {
+         String go = "hello FORM";
+        return go;
+      
+    }
+ 
 }
